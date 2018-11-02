@@ -5,15 +5,10 @@ import (
 	"os"
 )
 
-<<<<<<< HEAD
-var UFilepath = "F:/Users/HP/GOPATH/src/Go-Agenda/entity/Data/UJson"
-var ULoginFilepath = "F:/Users/HP/GOPATH/src/Go-Agenda/entity/Data/ULoginJson"
-var MFilepath = "F:/Users/HP/GOPATH/src/Go-Agenda/entity/Data/MJson"
-=======
-var UFilepath = "F:/GOProject/src/Go-Agenda/entity/Data/UJson"
-var ULoginFilepath = "F:/GOProject/src/Go-Agenda/entity/Data/ULoginJson"
-var MFilepath = "F:/GOProject/src/Go-Agenda/entity/Data/MJson"
->>>>>>> d7679333bec7ebada26c28715d286fad80b5ae38
+var UFilepath = "./entity/Data/UJson"
+var ULoginFilepath = "./entity/Data/ULoginJson"
+var MFilepath = "./entity/Data/MJson"
+
 var Users []User
 var Meetings []Meeting
 var Loginuser User
@@ -24,11 +19,10 @@ func ReadJson() {
 	Meetings = MReadFromJsonFile(MFilepath)
 }
 
-<<<<<<< HEAD
-】// 读登录信息
-=======
 // 读登录信息
->>>>>>> d7679333bec7ebada26c28715d286fad80b5ae38
+
+// 读登录信息
+
 func ReadLoginJson() {
 	inputFile, _ := os.Open(ULoginFilepath)
 	inputReader := bufio.NewReader(inputFile)
@@ -53,10 +47,7 @@ func WriteJson() {
 	MWriteToJsonFile(Meetings, MFilepath)
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> d7679333bec7ebada26c28715d286fad80b5ae38
 func GetUsers() []User {
 	return Users
 }
@@ -75,8 +66,7 @@ func AddUser(u User) string {
 func IsLogin() bool {
 	return Loginuser.Name != ""
 }
-<<<<<<< HEAD
-=======
+
 
 func AddMeeting(meet Meeting) {
 	Meetings = append(Meetings, meet)
@@ -101,4 +91,3 @@ func IsUser(username string) bool {
 	}
 	return false
 }
->>>>>>> d7679333bec7ebada26c28715d286fad80b5ae38
