@@ -1,7 +1,7 @@
 # Go-Agenda
 服务计算课程作业——CLI 命令行实用程序开发实战 - Agenda
 
-## 2018.10.26
+## 2018.10.26-2018.11.01
 
 已经实现的功能：
 
@@ -35,39 +35,41 @@ go run main.go queryUser
 ```
 go run main.go delete
 ```
++ 对于会议的操作(关于命令的详情要求请看)：
+  + 先用`go build main.go`就会生成main.exe 可执行文件
+  + 创建会议（日期要符合格式要求，多个参与者用英文`,`连接）：
 
-对于会议的操作(关于命令的详情要求请看[设计文档](https://github.com/kesongyue/Go-Agenda/blob/master/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md))：
+  ```
+  main createMeeting -t meet3 -p qiuxy,tt -s 2018-11-01/10:00 -e 2018-11-01/11:00
+  ```
+  + 增加会议参与者：
 
-先用`go build main.go`就会生成main.exe 可执行文件
-创建会议（日期要符合格式要求，多个参与者用英文`,`连接）：
-```
-main createMeeting -t meet3 -p qiuxy,tt -s 2018-11-01/10:00 -e 2018-11-01/11:00
-```
-增加会议参与者：
-```
-main addMeetingMember -t title -p member1,member2
-```
-删除会议成员：
-```
-main deleteMeetingMember -t title -p member1,member2
-```
-查询会议：
-```
-main queryMeeting -s  2018-11-01/10:00 -e 2018-11-01/11:00
-```
- 取消会议(只能取消自己发起的会议)
- ```
- main cancelMeeting -t title
- ```
- 退出会(只能退出自己参加的会议)
-```
-main quitMeeting -t title
-```
- 清空自己发起的所有会议
+  ```
+  main addMeetingMember -t title -p member1,member2
+  ```
+  + 删除会议成员：
 
-```
-main deleteAllMeeting
-```
+  ```
+  main deleteMeetingMember -t title -p member1,member2
+  ```
+  + 查询会议：
+  ```
+  main queryMeeting -s  2018-11-01/10:00 -e 2018-11-01/11:00
+  ```
+  + 取消会议(只能取消自己发起的会议)
+  ```
+  main cancelMeeting -t title
+  ```
+  + 退出会(只能退出自己参加的会议)
+  ```
+   main quitMeeting -t title
+  ```
+  + 清空自己发起的所有会议
+
+
+  ```
+  main deleteAllMeeting
+  ```
 
 基本文件：
 
@@ -110,4 +112,3 @@ F:\Users\HP\GOPATH\src\Go-Agenda>cobra add login
 获取用户的数组：entity.Users
 
 获取会议的数组：entity.Meetings
-
